@@ -1,0 +1,12 @@
+
+.imagesize{
+ display:flex;
+ height: 300px;                  
+ justify-content: center;        
+ align-items:center;                
+}
+
+.imagesize image { 
+  width:500rpx;
+  height:600rpx;
+  }

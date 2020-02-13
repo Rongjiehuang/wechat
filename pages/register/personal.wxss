@@ -1,0 +1,21 @@
+/* pages/register/personal.wxss */
+.temp
+{
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+}
+.one
+{
+    margin-top: 100px;
+}
+
+.getCodeView { 
+  width: 100%; 
+  margin-right: 20rpx; 
+  height: 60rpx; 
+  line-height: 60rpx; 
+  background: #fff; 
+  color:red;
+  padding-right:0rpx; 
+  }

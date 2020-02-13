@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="usermotto">
+    <text class="user-motto">请授权</text>
+</view>
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="weui-btn" type="primary"  > 登录</button>
+  </view>
+</view>

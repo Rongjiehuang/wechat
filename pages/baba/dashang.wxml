@@ -1,0 +1,23 @@
+<!--pages/baba/dashang.wxml-->
+<view class="page__bd">
+  <view class="weui-form-preview">
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">付款金额</view>
+        <view class="weui-form-preview__value_in-hd">＄3000000.00</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__bd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">超级对象：</view>
+        <view class="weui-form-preview__value">杰椰小程序</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='imagesize'>
+  <image src="/images/dashang.jpg" class='in-image'></image>
+</view>
+
+<button class="weui-btn" type="primary" bindtap="clickdashang">一键打赏</button>

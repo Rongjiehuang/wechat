@@ -1,0 +1,31 @@
+
+    <view class="page__bd page__bd_spacing">
+        <view class="weui-progress">
+            <view class="weui-progress__bar">
+                <progress percent="{{index/6*100}}" stroke-width="3" />
+            </view>
+        </view>
+        </view> 
+
+<view class="page">
+  <view class='page__hd'>
+    <view class="page__title" >{{index}}、{{questionDetail}}</view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+            <view url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='answerClickA'>
+                <view class="weui-cell__bd">{{optionA}}、{{answerA}}</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+            <view url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='answerClickB'>
+                <view class="weui-cell__bd">{{optionB}}、{{answerB}}</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+            <view url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='answerClickC'>
+                <view class="weui-cell__bd">{{optionC}}、{{answerC}}</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+            
+        </view>
+  </view>
+</view>

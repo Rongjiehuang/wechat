@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/register/userlogin",
+    "pages/register/register",
+    "pages/location/getloc",
+    "pages/register/personal",
+    "pages/test/test",
+    "pages/test/result",
+    "pages/baba/baba",
+    "pages/baba/function",
+    "pages/baba/dashang",
+    "pages/times/times",
+    "pages/register/change"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#abc",
+    "navigationBarTitleText": "椰椰",
+    "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/shouye2.png",
+        "selectedIconPath": "images/shouye1.png"
+      },
+      {
+        "pagePath": "pages/baba/function",
+        "text": "更多功能",
+        "iconPath": "images/gongneng1.png",
+        "selectedIconPath": "images/gongneng2.png"
+      },
+      {
+        "pagePath": "pages/register/personal",
+        "text": "我的信息",
+        "iconPath": "images/bangzhu2.png",
+        "selectedIconPath": "images/bangzhu1.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

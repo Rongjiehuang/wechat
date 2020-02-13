@@ -1,0 +1,21 @@
+<!--pages/location/getloc.wxml-->
+
+<view class="page__bd page__bd_spacing">
+  <button class="weui-btn" type="primary" bindtap="chooseloc">选择位置</button>
+    <view class="xuanze">你选择的位置是</view>
+   <view class="jieguo">({{choosen.latitude}},{{choosen.longitude}})</view>
+   <view class="jieguo">({{choosen.address}})</view>
+  </view>
+
+<view class="page__bd page__bd_spacing">
+  <button class="weui-btn" type="primary" bindtap="gotloc">获取位置</button>
+    <view class="xuanze">你现在的位置是</view>
+   <view class="jieguo">({{got.latitude}},{{got.longitude}})</view>
+   <view class="jieguo">({{got.address}})</view>
+
+   <button class="weui-btn" type="primary" disabled="{{!(flag1&&flag2)}}" bindtap="calculate">开始测距</button>
+    <view class="ceju">测距结果：{{motto}}</view>
+
+  </view>
+
+

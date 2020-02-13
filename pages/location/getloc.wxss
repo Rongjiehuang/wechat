@@ -1,0 +1,19 @@
+/* pages/location/getloc.wxss */
+.ceju{
+  margin: 0 auto;
+  padding-top: 15px;
+  text-align: center;
+  width: 90%
+}
+.xuanze{
+  margin: 0 auto;
+  padding-top: 15px;
+  text-align: left;
+  width: 90%
+}
+.jieguo{
+  margin: 0 auto;
+  padding-top: 15px;
+  text-align: right;
+  width: 90%
+}

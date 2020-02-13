@@ -1,0 +1,29 @@
+<!--pages/register/register.wxml-->
+
+<view class="weui-cells__title">表单</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell ">
+    <view class="weui-cell__hd">
+      <view class="weui-label">名字</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入名字" bindchange='changeName' />
+    </view>
+  </view>
+
+
+  <view class="weui-cell  weui-cell_vcode">
+    <view class="weui-cell__hd">
+      <view class="weui-label">手机号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入手机号" bindchange='changePhone' />
+    </view>
+    <view class="weui-cell__ft">
+      <view class="weui-vcode-btn">获取验证码</view>
+    </view>
+  </view>
+  <view class="page__bd page__bd_spacing">
+    <button class="weui-btn" type="primary"  bindtap="bindsumit" >提交</button>
+  </view>
+</view>

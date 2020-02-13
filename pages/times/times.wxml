@@ -1,0 +1,7 @@
+
+<view class='imagesize'>
+<view style='width:100%;height:{{canvasHeight}}px' catchtap='goCountdown'catchlongtap='touchstart' catchtouchend='touchend'>
+   <canvas canvas-id='clock' style='width:100%;height:{{canvasHeight}}px' class='in-image'></canvas>
+</view>
+
+</view>
