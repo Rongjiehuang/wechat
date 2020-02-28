@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    mytext: 'Hello World',
+    mytext: '欢迎光临ZJU备忘云机器',
     userInfo: {},
     soundflag: 0,
     hasUserInfo: false,
@@ -27,13 +27,17 @@ Page({
     }
     if (this.data.soundflag == 1) {
       this.setData({
-        mytext: '别点啦！小臭猫'
+        mytext: '别点啦！'
       })
     }
 
   },
 
-  onLoad: function() {
+  onLoad: function(event) {
+    console.log(event.server);
+    if (event.server == 1 || event.server == 0)
+    wx.setStorageSync('server', event.server)
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -72,10 +76,9 @@ Page({
 
   onShareAppMessage: function() {
     return {
-      title: '分享在看！',
-      desc: '哒哒哒哒',
+      title: '分享给更多小伙伴！',
       path: '/pages/index/index',
-      imageUrl:'/images/yeye.png'
+      imageUrl:'/images/beiwanglu.png'
     }
 
   },

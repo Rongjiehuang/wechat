@@ -1,6 +1,9 @@
 <!--pages/register/personal.wxml-->
 
+
 <view class="weui-cells weui-cells_after-title">
+
+
   <navigator url="pages/register/personal" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
     <view class="weui-cell__bd">头像</view>
     <image class="temp" src="{{person.head_img}}" mode="cover" bindtap="changepic"></image>
@@ -30,5 +33,6 @@
     <view class="weui-cell__bd">密码2备忘(仅数字)</view>
     <view class="weui-cell__ft weui-cell__ft_in-access">{{person.enter_year}}</view>
   </navigator>
+
 </view>
 

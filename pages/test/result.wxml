@@ -1,21 +1,7 @@
-<text>\n\n\n\n</text>
-<view class="thisone">
-  <image class="picture" src="/images/icon_love.svg"></image>
-   <image class="picture" src="/images/yejie1.jpg"></image>
-    <image class="picture" src="/images/icon_love.svg"></image>
-     <image class="picture" src="/images/yejie2.jpg"></image>
-</view>
-<text>\n</text>
 
+<view style="white-space:pre-wrap">\n</view>
 <view class="thisone">
-  <text  decode="{{true}}" space="{{true}}">知道了没有呀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;说说\n</text>
+  <text  decode="{{true}}" space="{{true}}">欢迎来到本小程序！</text>
 </view>
-<text>\n</text>
+<view style="white-space:pre-wrap">\n</view>
   <button class="weui-btn" type="primary" bindtap="clickthis">{{word}}</button>
-  <text>\n</text>
-<view class="thisone">
-  <image class="picture" src="/images/yeye.png"></image>
-   <image class="picture" src="/images/icon_love.svg"></image>
-    <image class="picture" src="/images/yeye2.jpg"></image>
-     <image class="picture" src="/images/icon_love.svg"></image>
-</view>

@@ -17,7 +17,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#abc",
-    "navigationBarTitleText": "椰椰",
+    "navigationBarTitleText": "欢迎 Welcome",
     "navigationBarTextStyle": "black",
   "enablePullDownRefresh": true
   },

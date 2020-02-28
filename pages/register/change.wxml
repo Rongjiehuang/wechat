@@ -4,7 +4,7 @@
   <view class="weui-cell">
     <view class="weui-cell__bd">
       <textarea class="weui-textarea" placeholder='{{tips}}' value='{{concent}}' style="height: 3.3em"bindblur="concentchange"  />
-      <view class="weui-textarea-counter">0/200</view>
+      <view class="weui-textarea-counter">{{concent.length}}/200</view>
     </view>
   </view>
 

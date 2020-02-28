@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    word:'知道啦',
+    word:'嗯嗯',
     flag:0
   },
 clickthis:function()
@@ -13,22 +13,22 @@ clickthis:function()
   if(this.data.flag==0)
   {
     this.setData({
-      word:'对呀',
+      word:'以后常来！',
       flag:1
     })
     return
   }
   if (this.data.flag == 1) {
     this.setData({
-      word: '就是这样哒',
+      word: '谢谢光临',
       flag: 2
     })
     return
   }
   if (this.data.flag == 2) {
     wx.showModal({
-      title: '不错哒',
-      content: '选择了正确的答案了的',
+      title: '回答正确',
+      content: '恭喜！',
       showCancel: false,
       success: function (res) {
         wx.navigateBack({})

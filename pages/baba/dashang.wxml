@@ -10,7 +10,7 @@
     <view class="weui-form-preview__bd">
       <view class="weui-form-preview__item">
         <view class="weui-form-preview__label">超级对象：</view>
-        <view class="weui-form-preview__value">杰椰小程序</view>
+        <view class="weui-form-preview__value">我的小程序</view>
       </view>
     </view>
   </view>

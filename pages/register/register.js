@@ -1,5 +1,5 @@
 // pages/register/register.js
-
+const userUrl = require('../../config.js').userUrl
 const app = getApp()
 Page({
 
@@ -9,9 +9,9 @@ Page({
   data: {
     name: ' ',
     phone: 0,
-    school: 'temp',
-    num: 12,
-    year: 12,
+    school: '暂未输入',
+    num: 1,
+    year: 2020,
   },
   changeName: function(temp) {
     this.setData({
@@ -33,89 +33,64 @@ Page({
 
 
   bindsumit: function(e) {
-
-    wx.request({
-      url: 'http://zjgsujiaoxue.applinzi.com/index.php/Api/User/register_by_openid',
-      data: {
-        openid: wx.getStorageSync('jiaoxue_OPENID'),
-        globalData: JSON.stringify(app.globalData.userInfo),
-        name: this.data.name,
-        tel: this.data.phone,
-        school: this.data.school,
-        num: this.data.num,
-        enter_year: this.data.year
-      },
+    wx.showModal({
+      title: '即将提交',
+      content: '确定修改吗',
       success: res => {
-        console.log('res', res)
-        if (res.data.is_register) {
-          wx.showModal({
-            title: '提示',
-            content: res.data.data,
-            showCancel: false,
-            success: function(res) {
-              wx.navigateBack({})
-              wx.navigateBack({})
+        wx.request({
+          url: userUrl + 'register_by_openid',
+          data: {
+            openid: wx.getStorageSync('jiaoxue_OPENID'),
+            globalData: JSON.stringify(app.globalData.userInfo),
+            name: this.data.name,
+            tel: this.data.phone,
+            school: this.data.school,
+            num: this.data.num,
+            enter_year: this.data.year
+          },
+          success: res => {
+            console.log('res', res)
+            if (res.data.is_register) {
+              wx.showModal({
+                title: '提示',
+                content: res.data.data,
+                showCancel: false,
+                success: function(res) {
+                  wx.navigateBack({})
+                  wx.navigateBack({})
+                }
+              })
+            } else {
+              wx.showModal({
+                title: 'res.data.data' + '失败',
+                content: res.data.data,
+                showCancel: false,
+                success: function(res) {
+                  wx.navigateBack({})
+                  wx.navigateBack({})
+                }
+              })
             }
-          })
-        }
-      },
+          }
+        })
+      }
     })
-
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
+  onLoad: function() {
+    var server = wx.getStorageSync('server');
+    if (server == 0)
+      wx.showModal({
+        title: '数据库未启用',
+        content: '部分功能暂停',
+        showCancel: false,
+        success: function () {
+          wx.navigateBack({})
+          wx.navigateBack({})
+        }
+      })
   }
+
+
 })

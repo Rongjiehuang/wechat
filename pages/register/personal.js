@@ -1,17 +1,20 @@
 // pages/register/personal.js
+const userUrl = require('../../config.js').userUrl
+const wxUrl = require('../../config.js').wxUrl
+const appid = require('../../config.js').appid
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    person:{ }
+    person: {},
   },
 
-  changepic:function(){
+  changepic: function() {
     wx.showToast({
-      title: '头像不支持修改哒哒',
-      icon:"none"
+      title: '头像暂不支持修改',
+      icon: "none"
     })
 
   },
@@ -21,89 +24,73 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
+
     wx.login({
       success: res => {
         // 发送res.code 到后台换取openId, sessionKey, unionId
         wx.request({
           url:
-            'https://zjgsujiaoxue.applinzi.com/index.php/Api/Weixin/code_to_openidv2',
+            wxUrl + 'code_to_openidv2',
           data: {
             'code': res.code,
-            'from': 'wx148bdf3c0c0268d9'
+            'from': 'wx92ed16e58a76633a'
           },
           success: function (res) {
-            //将SESSIONID 保存到本地storage
-            wx.setStorageSync('jiaoxue_OPENID', res.data.openid)
-            wx.request({
-              url:
-                'https://zjgsujiaoxue.applinzi.com/index.php/Api/User/getInfo',
-              data: {
-                'openid': res.data.openid,
-              },
-              success: function (res1) {
-                wx.setStorageSync('userInfo', res1.data.data)
-              },
-            })
+            var server=wx.getStorageSync('server');
+            if ((!res.data.is_register)&&server==1)
+              wx.showModal({
+                title: '未注册',
+                content: '请前往注册',
+                showCancel: false,
+                success: function (res) {
+                  wx.navigateTo({
+                    url: '/pages/register/userlogin',
+                  })
+                }
+              })
+            if (server == 0)
+              wx.showModal({
+                title: '数据库未启用',
+                content: '部分功能暂停',
+                showCancel: false,
+              })
           },
+          fail: function (res) {
+            console.log('res' + res)
+          }
         })
       }
     })
+
+
     this.setData({
-      person:wx.getStorageSync('userInfo')
+      person: wx.getStorageSync('userInfo'),
     })
+
     console.log(this.data.person)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  onShow: function() {
     this.setData({
-      person: wx.getStorageSync('userInfo')
+      person: wx.getStorageSync('userInfo'),
+
     })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    var that=this
+  onPullDownRefresh: function() {
+    var that = this
     this.onLoad();
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  onShareAppMessage: function() {
+    return {
+      title: '分享给更多小伙伴！',
+      path: '/pages/index/index',
+      imageUrl: '/images/beiwanglu.png'
+    }
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

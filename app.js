@@ -1,4 +1,9 @@
 //app.js
+const wxUrl = require('./config.js').wxUrl
+const userUrl = require('./config.js').userUrl
+const appid = require('./config.js').appid
+
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -12,18 +17,18 @@ App({
         // 发送res.code 到后台换取openId, sessionKey, unionId
         wx.request({
           url:
-            'https://zjgsujiaoxue.applinzi.com/index.php/Api/Weixin/code_to_openidv2',
+            wxUrl + 'code_to_openidv2',
           data: {
             'code': res.code,
-            'from': 'wx148bdf3c0c0268d9'
+            'from': 'wx92ed16e58a76633a'
           },
           success: function (res) {
             console.log(res.data)
-//将SESSIONID 保存到本地storage
+            //将SESSIONID 保存到本地storage
             wx.setStorageSync('jiaoxue_OPENID', res.data.openid)
             wx.request({
               url:
-                'https://zjgsujiaoxue.applinzi.com/index.php/Api/User/getInfo',
+                userUrl + 'getInfo',
               data: {
                 'openid': res.data.openid,
               },
@@ -31,19 +36,24 @@ App({
                 wx.setStorageSync('userInfo', res1.data.data)
               },
             })
-            
-            if(!res.data.is_register)
-            wx.showModal({
-              title: '未注册',
-              content: '请前往注册',
-              showCancel:false,
-              success: function (res) {
-                wx.navigateTo({
+            var server = wx.getStorageSync('server')
+            if ((!res.data.is_register) && server == 1)
+              wx.showModal({
+                title: '未注册',
+                content: '请前往注册',
+                showCancel: false,
+                success: function (res) {
+                  wx.navigateTo({
                     url: '/pages/register/userlogin',
-                  })  
-              }
-            })
-
+                  })
+                }
+              })
+            if (server == 0)
+              wx.showModal({
+                title: '数据库未启用',
+                content: '部分功能暂停',
+                showCancel: false,
+              })
           },
           fail: function (res) {
             console.log('res' + res)
@@ -75,16 +85,16 @@ App({
     })
   },
 
- globalData: {
+  globalData: {
     userInfo: null,
-    question: [{ "question": "椰椰是谁呀", "option": { "A": "大臭臭", "B": "小猫", "C": "憨憨" } }, { "question": "谁下五子棋最厉害呀", "option": { "A": "杰杰", "B": "杰杰儿", "C": "还是小杰宝" } }, { "question": "椰椰多大呀", "option": { "A": "18", "B": "椰椰不是宝宝的", "C": "21" } }, { "question": "wowowo", "option": { "A": "yewowoye", "B": "贴贴", "C": "抱抱的" } }, { "question": "小杰宝是不是要全面超越呀", "option": { "A": "对呀", "B": "就是这样哒", "C": "知道没呀" } }, { "question": "椰椰还差杰杰多少杯奶茶呀 说说", "option": { "A": "3", "B": "30", "C": "300" } }]
+    question: [{ "question": "今天是白天吗", "option": { "A": "是的", "B": "不是", "C": "今天是阴天" } }, { "question": "今天星期几", "option": { "A": "周一", "B": "周二", "C": "周三" } }, { "question": "美元兑人民币汇率多少", "option": { "A": "6.12", "B": "6.23", "C": "7.0" } }, { "question": "这里是哪里", "option": { "A": "中国", "B": "美国", "C": "日本" } }, { "question": "从北极向下看，地球自传方向如何", "option": { "A": "顺时针", "B": "逆时针", "C": "不清楚" } }, { "question": "2018年全国高考时间是？", "option": { "A": "6.7", "B": "6.8", "C": "6.7-6.8" } }]
   },
 
- onPullDownRefresh: function () {
-   wx.showToast({
-     title: '刷新成功',
-     icon: 'success'
-   })
+  onPullDownRefresh: function () {
+    wx.showToast({
+      title: '刷新成功',
+      icon: 'success'
+    })
   },
 
 })

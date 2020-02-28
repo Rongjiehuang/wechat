@@ -1,4 +1,6 @@
 // pages/register/change.js
+
+const userUrl = require('../../config.js').userUrl
 Page({
 
   /**
@@ -10,10 +12,9 @@ Page({
     tempArray: {
       name: '姓名',
       phone: '手机号',
-      list1: '椰杰备忘',
-      list2: '椰椰备忘',
-      list3: '杰杰备忘',
-      list4: '备忘4'
+      list1: '中文备忘',
+      list2: '密码1备忘(仅数字)',
+      list3: '密码2备忘(仅数字)',
     },
     changeWhat:'',
     afterchange: '',
@@ -26,7 +27,7 @@ Page({
   onLoad: function(options) {
     console.log(options)
     this.setData({
-      concent: this.data.userinfo[options.changeWhat],
+
       tips: '请输入' + this.data.tempArray[options.changeWhat],
       changeWhat: options.changeWhat
     })
@@ -37,7 +38,9 @@ Page({
     else if (options.changeWhat == 'name') this.setData({ afterchange: "name" });
     this.setData({
       concent: this.data.userinfo[this.data.afterchange]
+
     }) 
+    console.log('concent', this.data.concent)
   },
 
   concentchange: function(res) {
@@ -53,7 +56,7 @@ Page({
       content: '确定修改吗',
       success: res =>  {
     wx.request({
-      url: "https://zjgsujiaoxue.applinzi.com/index.php/Api/User/updateInfo",
+      url: userUrl + 'updateInfo',
     
       data: {
         openid: wx.getStorageSync('jiaoxue_OPENID'),
@@ -78,56 +81,7 @@ Page({
         }
       }
     })
-      }
-    })
-   
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-   
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
+   }
+ }) 
+},
 })
