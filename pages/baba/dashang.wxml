@@ -3,8 +3,8 @@
   <view class="weui-form-preview">
     <view class="weui-form-preview__hd">
       <view class="weui-form-preview__item">
-        <view class="weui-form-preview__label">付款金额</view>
-        <view class="weui-form-preview__value_in-hd">＄3000000.00</view>
+        <view class="weui-form-preview__label">更多详情，欢迎访问我的个人主页</view>
+        <view class="weui-form-preview__value_in-hd">www.zju-hrj.top </view>
       </view>
     </view>
     <view class="weui-form-preview__bd">
@@ -16,8 +16,5 @@
   </view>
 </view>
 
-<view class='imagesize'>
-  <image src="/images/dashang.jpg" class='in-image'></image>
-</view>
-
+<view style="white-space:pre-wrap">\n</view>
 <button class="weui-btn" type="primary" bindtap="clickdashang">一键打赏</button>

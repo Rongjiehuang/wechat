@@ -34,10 +34,7 @@ Page({
   },
 
   onLoad: function(event) {
-    console.log(event.server);
-    if (event.server == 1 || event.server == 0)
-    wx.setStorageSync('server', event.server)
-
+ 
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

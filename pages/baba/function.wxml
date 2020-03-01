@@ -11,6 +11,6 @@
 <view style="white-space:pre-wrap">\n</view>
 <button class="weui-btn" type="primary" bindtap="test">检查服务器</button>
 <view style="white-space:pre-wrap">\n</view>
-<button class="weui-btn" type="warn" bindtap="dashang">过来打赏!</button>
+<button class="weui-btn" type="warn" bindtap="dashang">更多详情</button>
 
  

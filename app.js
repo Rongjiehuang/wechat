@@ -11,6 +11,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+
     // 登录
     wx.login({
       success: res => {
@@ -36,6 +37,7 @@ App({
                 wx.setStorageSync('userInfo', res1.data.data)
               },
             })
+          
             var server = wx.getStorageSync('server')
             if ((!res.data.is_register) && server == 1)
               wx.showModal({
@@ -61,7 +63,11 @@ App({
         })
       }
     })
-
+ 
+    var server;
+    if (wx.getStorageSync('jiaoxue_OPENID') == '') server = 0;
+    else server = 1;
+    wx.setStorageSync('server', server)
 
     // 获取用户信息
     wx.getSetting({
